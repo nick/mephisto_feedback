@@ -1,0 +1,9 @@
+<h2><%=h @feedback.key %> Feedback on <%= utc_to_local(@feedback.created_at).to_s :long %></h2>
+
+<h3><%=h @feedback.name %> <small>(<%= mail_to @feedback.email %>)</small></h3>
+
+<%= simple_format @feedback.body %>
+
+<% form_tag :action => 'destroy', :id => @feedback do -%>
+  <p class="btns"><%= submit_tag 'Delete' %> or <%= link_to "go back", :action => "index" %></p>
+<% end -%>

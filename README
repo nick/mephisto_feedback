@@ -1,0 +1,24 @@
+MephistoFeedback
+================
+
+This mephisto plugin provides a mechanism for submitting feedback.
+
+Once it is installed, run this from #{RAILS_ROOT}
+<tt>script/runner -e production 'Mephisto::Plugins::Feedback::Schema.install'</tt>
+
+Then, just create a static page, set the Format to "Plain HTML", and paste this into it:
+
+<h3 id="respond">Send us feedback</h3>
+<form method="POST" id="comment-form" action="/send_feedback">
+  <p><input type="text" id="comment_author" name="feedback[name]" value="" /><label for="author"><small>Name</small></label></p>
+  <p><input type="text" id="comment_author_email" name="feedback[email]" value="" /><label for="email"><small>Mail</small></label></p>
+ <input type="hidden" name="feedback[key]" value="feedback" />
+  <p><textarea name="feedback[body]" id="comment" cols="100%" rows="10"></textarea></p>
+  <p><input name="submit" type="submit" id="submit" value="Submit Feedback" /></p>
+</form>
+
+Save, and link.
+
+That's it, you now have a feedback form.
+
+Feel free to embelish.
